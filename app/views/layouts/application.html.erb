@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= (yield(:title)) %></title>
+    <%= render 'layouts/rails_default' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  </head>
+
+  <body>
+  <div data-spy="scroll" data-target="#navbar-perso" data-offset="0">
+  <%= yield %>
+  </div>
+  <script>
+    $(document).ready(function() {
+      $('.js-scrollTo').on('click', function() { // Au clic sur un élément
+        var page = $(this).attr('href'); // Page cible
+        var speed = 750; // Durée de l'animation (en ms)
+        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        return false;
+      });
+    });
+  </script>
+  </body>
+</html>
